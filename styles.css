@@ -1,0 +1,68 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+#video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensure the video covers the entire background */
+    z-index: -1; /* Place the video behind other content */
+}
+
+.homepage {
+    top: 30%;
+    right: -3%;
+    flex-direction: column; /* Stack buttons vertically */
+    gap: 5rem; /* Space between buttons */
+    position: absolute;
+}
+
+.optionspage {
+    flex-direction: column;
+    align-items: center; /* Centers child divs horizontally */
+    justify-content: flex-start; /* Centers the whole content vertically */
+    height: 100vh; /* Full height of viewport */
+    margin-top: 35%;
+}
+
+.container {
+    display: flex;
+}
+
+#home-div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 5rem;
+}
+
+.buttons-div {
+    display: flex;
+    /* flex-direction: column; */
+    justify-content: center;
+    gap: 5rem; /* Adds space between buttons */
+    padding: 5%;
+    flex-wrap: wrap;
+}
+
+.btn-icon {
+    width: 30%;
+}
+
+.action-icon {
+    width: 30%;
+}
+
+.hidden {
+    display: none;
+}
+
+button {
+    background-color: transparent;
+    border: none;
+}
