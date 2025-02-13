@@ -85,7 +85,7 @@ $(".btn").on("click", (e) => {
 })
 
 function playVideo(code, type) {
-    const url = `Video\\${type}\\${code}.mp4`;
+    const url = `Video/${type}/${code}.mp4`;
     videoPlayer.prop("autoplay", false);
     videoPlayer.prop("loop", false);
     videoPlayer.prop("muted", false);
@@ -107,15 +107,43 @@ function playVideo(code, type) {
     })
 }
 
+// function playVideoBG() {
+//     const url = "Video\\bg-video\\sample.mp4";
+//     videoPlayer.prop("autoplay", true);
+//     videoPlayer.prop("loop", true);
+//     videoPlayer.prop("muted", true);
+//     videoPlayer.attr("src", url);
+//     videoPlayer[0].load();
+//     videoPlayer[0].play().catch(err1 => console.log(`Video BG Error: ${err1}`));
+// }
+
 function playVideoBG() {
-    const url = "Video\\bg-video\\sample.mp4";
+    const url = "Video/bg-video/sample.mp4"; // Use "/" instead of "\\" for cross-browser compatibility
     videoPlayer.prop("autoplay", true);
     videoPlayer.prop("loop", true);
-    videoPlayer.prop("muted", true);
+    videoPlayer.prop("muted", true); // Start muted to allow autoplay
     videoPlayer.attr("src", url);
-    videoPlayer[0].load();
-    videoPlayer[0].play().catch(err1 => console.log(`Video BG Error: ${err1}`));
+
+    // Attempt to play the video
+    videoPlayer[0].play().catch(err => console.log(`Video BG Error: ${err}`));
+
+    // Gradually increase volume AFTER user interaction
+    $(document).one("click keydown touchstart", () => {
+        let volume = 0;
+        videoPlayer.prop("muted", false);
+        let volumeInterval = setInterval(() => {
+            if (volume < 1) {
+                volume += 0.1;
+                videoPlayer[0].volume = Math.min(volume, 1);
+            } else {
+                clearInterval(volumeInterval);
+            }
+        }, 300);
+    });
 }
+
+
+// function playV(code, type, property) {}
 
 function hideAll() {
     homePage.addClass("hidden");
