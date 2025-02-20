@@ -148,4 +148,6 @@ function playVideoBG() {
 function hideAll() {
     homePage.addClass("hidden");
     optionsPage.addClass("hidden");
+    freeGiftBtns.addClass("hidden");
+    promotionBtns.addClass("hidden");
 }

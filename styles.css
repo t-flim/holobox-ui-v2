@@ -15,7 +15,7 @@
 
 .homepage {
     top: 30%;
-    right: -3%;
+    right: 5% ;
     flex-direction: column; /* Stack buttons vertically */
     gap: 5rem; /* Space between buttons */
     position: absolute;
@@ -46,16 +46,12 @@
     /* flex-direction: column; */
     justify-content: center;
     gap: 5rem; /* Adds space between buttons */
-    padding: 5%;
+    padding: 10%;
     flex-wrap: wrap;
 }
 
-.btn-icon {
-    width: 30%;
-}
-
-.action-icon {
-    width: 30%;
+.btn-icon, .action-icon {
+    width: 5rem;
 }
 
 .hidden {
